@@ -9,6 +9,8 @@ import toast, { Toaster } from "react-hot-toast";
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [characters, setCharacters] = useState([]);
+  const [selectedId, setSelectedId] = useState(null);
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -25,13 +27,23 @@ function App() {
     }
     fetchData();
   }, []);
+
+  const handleSelectCharater = (id) => {
+    setSelectedId((prevId) => (prevId === id ? null : id));
+  };
+
   return (
     <div className="app">
       <Toaster />
       <Navbar />
       <div className="main">
-        <CharacterList characters={characters} isLoading={isLoading} />
-        <CharacterDetail />
+        <CharacterList
+          selectedId={selectedId}
+          characters={characters}
+          isLoading={isLoading}
+          onSelectCharacter={handleSelectCharater}
+        />
+        <CharacterDetail selectedId={selectedId} />
       </div>
     </div>
   );
