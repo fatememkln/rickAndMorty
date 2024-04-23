@@ -1,5 +1,4 @@
 import { ArrowUpCircleIcon, LifebuoyIcon } from "@heroicons/react/24/outline";
-import { episodes } from "../../data/data";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "./loader";
