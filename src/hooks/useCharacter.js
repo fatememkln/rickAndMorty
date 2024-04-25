@@ -1,14 +1,14 @@
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 
 export default function useCharacter(url, query) {
-  const controller = new AbortController();
-  const signal = controller.signal;
   const [isLoading, setIsLoading] = useState(false);
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     async function fetchData() {
       try {
         setIsLoading(true);

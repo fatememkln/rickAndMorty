@@ -1,10 +1,7 @@
-import {
-  ArrowDownCircleIcon,
-  ArrowUpCircleIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowUpCircleIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loader from "./loader";
+import Loader from "./Loader";
 import toast from "react-hot-toast";
 
 function CharacterDetail({ selectedId, onAddFavourites, isAddToFavourites }) {
@@ -67,8 +64,8 @@ function CharacterSubInfo({ character, isAddToFavourites, onAddFavourites }) {
   return (
     <div className="character-detail">
       <img
-        src="{character.image}"
-        alt="{character.name}"
+        src={character.image}
+        alt={character.name}
         className="character-detail__img"
       />
       <div className="character-detail__info">

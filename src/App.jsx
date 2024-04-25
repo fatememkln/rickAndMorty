@@ -1,10 +1,10 @@
 import "./App.css";
-import Navbar, { Search, SearchResualt, Favourites } from "./components/navbar";
-import CharacterList from "./components/characterList";
-import CharacterDetail from "./components/characterDetail";
-import useCharacter from "./hooks/useCharacter";
-import { Toaster } from "react-hot-toast";
 import { useState } from "react";
+import { Toaster } from "react-hot-toast";
+import Navbar, { Search, SearchResualt, Favourites } from "./components/navbar";
+import CharacterList from "./components/CharacterList";
+import CharacterDetail from "./components/CharacterDetail";
+import useCharacter from "./hooks/useCharacter";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -33,7 +33,7 @@ function App() {
       <Navbar>
         <Search query={query} setQuery={setQuery} />
         <SearchResualt numOfResult={characters.length} />
-        <Favourites numOfFavourites={favourites.length} />
+        <Favourites favourites={favourites} />
       </Navbar>
       <div className="main">
         <CharacterList
