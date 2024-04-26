@@ -186,11 +186,9 @@
   background-color: var(--slate-800);
   border-radius: 1rem;
   padding: 1rem;
-  height: 9.5%;
+  height: 180px;
   overflow-y: scroll;
 }
-
-
 
 .character-episodes .title {
   display: flex;

@@ -20,12 +20,14 @@ function App() {
   };
 
   const handleAddFavourites = (char) => {
-    setFavourites((prevFav) => [...prevFav, char]);
+    setFavourites((preFav) => [...preFav, char]);
   };
 
-  const isAddToFavourites = favourites
-    .map((fav) => fav.id)
-    .includes(selectedId);
+  const handleDeleteFavourite = (id) => {
+    setFavourites((preFav) => preFav.filter((fav) => fav.id !== id));
+  };
+
+  const isAddToFavourite = favourites.map((fav) => fav.id).includes(selectedId);
 
   return (
     <div className="app">
@@ -33,7 +35,10 @@ function App() {
       <Navbar>
         <Search query={query} setQuery={setQuery} />
         <SearchResualt numOfResult={characters.length} />
-        <Favourites favourites={favourites} />
+        <Favourites
+          favourites={favourites}
+          onDeleteFavourite={handleDeleteFavourite}
+        />
       </Navbar>
       <div className="main">
         <CharacterList
@@ -45,7 +50,7 @@ function App() {
         <CharacterDetail
           selectedId={selectedId}
           onAddFavourites={handleAddFavourites}
-          isAddToFavourites={isAddToFavourites}
+          isAddToFavourite={isAddToFavourite}
         />
       </div>
     </div>
