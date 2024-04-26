@@ -3,8 +3,8 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 
 export default function useCharacter(url, query) {
-  const [isLoading, setIsLoading] = useState(false);
   const [characters, setCharacters] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -17,6 +17,7 @@ export default function useCharacter(url, query) {
       } catch (err) {
         if (!axios.isCancel()) {
           setCharacters([]);
+          console.log(err.response.data.error);
           toast.error(err.response.data.error);
         }
       } finally {
@@ -29,5 +30,5 @@ export default function useCharacter(url, query) {
     };
   }, [query]);
 
-  return { isLoading, characters };
+  return { characters, isLoading };
 }

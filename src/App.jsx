@@ -8,7 +8,7 @@ import useCharacter from "./hooks/useCharacter";
 
 function App() {
   const [query, setQuery] = useState("");
-  const { isLoading, characters } = useCharacter(
+  const { characters, isLoading } = useCharacter(
     "https://rickandmortyapi.com/api/character/?name",
     query
   );

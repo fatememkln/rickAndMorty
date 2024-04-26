@@ -57,7 +57,7 @@
 .characters-list {
   width: 40%;
   height: 450px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .box h2 {
@@ -186,8 +186,8 @@
   background-color: var(--slate-800);
   border-radius: 1rem;
   padding: 1rem;
-  height: 180px;
-  overflow-y: scroll;
+  max-height: 180px;
+  overflow-y: auto;
 }
 
 .character-episodes .title {
