@@ -17,7 +17,6 @@ export default function useCharacter(url, query) {
       } catch (err) {
         if (!axios.isCancel()) {
           setCharacters([]);
-          console.log(err.response.data.error);
           toast.error(err.response.data.error);
         }
       } finally {

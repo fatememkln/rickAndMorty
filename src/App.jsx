@@ -5,6 +5,7 @@ import Navbar, { Search, SearchResualt, Favourites } from "./components/navbar";
 import CharacterList from "./components/CharacterList";
 import CharacterDetail from "./components/CharacterDetail";
 import useCharacter from "./hooks/useCharacter";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -13,7 +14,7 @@ function App() {
     query
   );
   const [selectedId, setSelectedId] = useState(null);
-  const [favourites, setFavourites] = useState([]);
+  const [favourites, setFavourites] = useLocalStorage("FAVOURITES", []);
 
   const handleSelectCharater = (id) => {
     setSelectedId((prevId) => (prevId === id ? null : id));
